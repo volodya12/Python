@@ -1,0 +1,43 @@
+// https://www.webucator.com/article/python-color-constants-module/
+{
+        "todohighlight.isEnable": true,
+        "todohighlight.isCaseSensitive": true,
+        "todohighlight.keywords": [
+            "DEBUG:",
+            "REVIEW:",
+            {
+                "text": "NOTE:",
+                "color": "#ff0000",
+                "backgroundColor": "yellow",
+                "overviewRulerColor": "grey"
+            },
+            {
+                "text": "TODO:",
+                "color": "red",
+                "border": "1px solid red",
+                "borderRadius": "2px", //NOTE: using borderRadius along with `border` or you will see nothing change
+                "backgroundColor": "rgba(0,0,0,.2)",
+                //other styling properties goes here ... 
+            },
+            {
+                "text": "TIP:",
+                "color": "#F0FFFF",
+                "backgroundColor": "black",
+                "overviewRulerColor": "grey"
+            },
+        ],
+        "todohighlight.exclude": [
+            "**/node_modules/**",
+            "**/bower_components/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/.vscode/**",
+            "**/.github/**",
+            "**/_output/**",
+            "**/*.min.*",
+            "**/*.map",
+            "**/.next/**"
+        ],
+        "todohighlight.maxFilesForSearch": 5120,
+        "todohighlight.toggleURI": false
+}

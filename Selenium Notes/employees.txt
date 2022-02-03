@@ -1,0 +1,6 @@
+vlad - kalmykov
+age - 23
+Reside - Charlotte, NC
+And some other stuff. 
+This is text file anywaysAdding content to this file with parameter of AAdding content to this file with parameter of A
+ Adding another Content with line break
