@@ -1,6 +1,21 @@
 If assert is NOT true, Code will fail with error
 If assert PASS no errors will display and Code runs Smooth
 #============================================================
+# Hide / Show Buttons 
+# https://rahulshettyacademy.com/AutomationPractice/
+# Its good practice to have "Assertions" for true/false
+
+assert driver.find_element_by_id("displayed-text").is_displayed() # True or False
+#print(driver.find_element_by_id("displayed-text").is_displayed()) # True or False
+
+driver.find_element_by_id("hide-textbox").click()
+
+assert not driver.find_element_by_id("displayed-text").is_displayed() # True or False
+#print(driver.find_element_by_id("displayed-text").is_displayed()) # True or False
+
+assert not => If statement returns FALSE, as expected, the "assert" will FAIL and Test will FAIL
+    That is why, use "assert not" so the statement result in TRUE 
+================================================================
 
 assert "Selenium" in "This is tested in Selenium", "Selenium is NOT present"
 print("Validation 1 passed")

@@ -1,11 +1,20 @@
 # Locators in Selenium -> way to draw out links from Web sites
+# https://www.youtube.com/watch?v=HBOdscUwUnc&t=1197s -> ID, Name, Link, Tags, Class & CSS Selector
 
-from multiprocessing import parent_process
-from typing import Container
-from typing_extensions import Self
-from xml.dom.xmlbuilder import DOMBuilder
+'''Determine When to use specific Locators'''
+# Sometimes, easy locators such as ID, Name, class, tags, CANNOT be utilized simply because 
+#   naming for these locators already used/occupied by other Nodes as well. And when running Selenium,
+#   it will NOT execute because that Name also being used in other tags within same page. 
+# A Unique name must be chosen for each Node. 
+# To Avoid, use XPath for Child-> Parent... or CSS Selector for Parent-> Child traversing 'back'
+#       Tip: in "inspect" window, Ctr+F (find), key tagName want to use, see if it find multiples
+# 
+# Common XPath ways: xpath("/html/body/div[1]/div/div/div/div[1]/ul/li[2]/a")
+#   //*[@id="OkTab"]/button     (parent->child)
 
-
+# Best to Capture Full Xpath/Traversing
+#   Inspect - Right-Click on Node, Copy->Select "Copy Xpath" or "Copy Full Path"
+'''-----------------------------------------------------------------------------------------'''
 With Java:
 driver.findElement(By.id("search_query")).sendKeys("shorts")
 
@@ -44,6 +53,8 @@ driver.find_element_by_css_selector(".inputtext[data-testid=royal_email]")  -> c
 # To differentiate fields, use class and attribute together. 
 
 ================================================= XPath Selector
+# https://www.youtube.com/watch?v=jD37dxX3ZNo -> XPath Locator
+
 # Provides flexibility with Traverse forward and back using tags (parent->child / child-> parent-> grandparent)
 # Ability to find Web Elements using HTML tags and DOM structure
 # Can be used to navigate through elements and attributes in DOM
@@ -91,6 +102,8 @@ or can write this way:
 //form[@id='searchbox']//input[@id='search_query_top']
 
 ======================================================= XPath Axes
+# https://www.youtube.com/watch?v=BRzlyGXx13Q&t=850s -> Advanced XPath Axes Methods
+
 # Method used when web elements is NOT identified with ID, Name, class, link text, css selector
 #https://1.bp.blogspot.com/-qf5RVHBUaEQ/X2LyZ0ylTKI/AAAAAAAAQ-4/S29JPBhxqKgHEdYT1iiHKHKREM--xhjDwCLcBGAsYHQ/s640/Picture1.jpg
 #https://training-course-material.com/images/3/3d/XPathAxis.png  -> image diagram-Relationship of Nodes
@@ -107,7 +120,8 @@ or can write this way:
     Preceding-sibling 
 
 ================================================== Elements in Shadow DOM
-# https://www.youtube.com/watch?v=bpzyjNZ0jaw
+# https://www.youtube.com/watch?v=bpzyjNZ0jaw  -> Shadow DOM
+
 # DOM - Document Object Model -> HTML consists of DOM or build in DOM structure 
 # Some Elements cannot be access using HTML Tags, MUST use DOM JavaScript
 #   DOM identification within 'Inspect' -> they will have '#shadow-root' over the node.
