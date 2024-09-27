@@ -1,0 +1,964 @@
+Python - EdX.org - "CS50's Introduction to Programming with Python"
+------------------
+docs.python.org/3/library/functions.html
+docs.python.org/3/library/stdtypes.html#string-methods		>Strings
+pillow.readthedocs.io
+docs.python.org/3/library/re.html - regular expressions library 
+	import re - import regular expression library 
+
+packages
+imports
+unit test 
+==============================================
+TIP:
+
+Parameters - what function can take
+Arguments - what user actually passing into Function
+- otherwise its same thing
+*Diagram:
+	Square - is Variable (x = 1)(i = i + 1 statement)
+	Diamond - is Question (x == 2)(x != 1)
+	Verticle Oval - is a Stop (return, else, break)
+*print("cat\n" * 3, end='')
+*Def function - the intent is to return a value (using 'print' is more of side effect)
+*print - is a more of side effect of any function (def, if else, for loop, etc)
+	'print' prints what you want
+	'return' returns a value of function (return 4 + 2)
+	try to avoid side effects= "print" if possible
+*from PIL import image - controls gif images 
+*break - breaks from loop, continue - skips, pass 
+
+# Documentation:
+*help(myList.insert)		>will provide minimum help 
+*dir(myList)				>provides list of methods to use for list 
+-see Documentation for Python version you have
+*use type(variable)			>find out type (really useful feature)
+
+# float(i) for i in values:			>converting numbers in 'i' into float data format 
+
+--------------------------------
+print vs return:
+
+return - allows to save result to a variable/also acts as 'break' when statement is True or breaks out of loop.
+	ex: return num1 + num2
+		if return is used, then user must assign function to a Variable and then print that variable.
+		-always assign Function call to a Variable when 'return' is used.
+print - just prints the result 
+---------------------------------
+for item in enumerate()					>allows one argument
+for item in zip()						>allows multiple arguments 
+
+f"message{variable}"
+dir(list)								>shows all methods for list
+	help(list.remove)					>bring HELP screen for 'remove' method 
+	
+=================================================
+Module/Package:
+
+if __name__ == "__main__":
+	main()
+	
+watch youtube: https://www.youtube.com/watch?v=sugvnHA7ElY
+watch youtube: https://www.youtube.com/watch?v=NB5LGzmSiCs
+
+=================================================
+# print(*objects, sep='', end='\n')
+
+*objects- any object(string, function, numeric, etc) 
+sep-separator
+end-ends every line with something you specify
+
+# Functions:
+-positional arguments goes second:
+-dog="orange" is positional argument
+-cat is an argument 
+
+def animal(cat, dog="orange"):	>parameters 
+		print(cat, dog)
+
+animal("lucky", dog)			>arguments
+-----------------------------
+def main():
+	name = input("Your name please: ")
+	hello(name)
+	
+def hello():
+	print("World")
+
+
+main()
+hello() takes 0 positional arguments but 1 was given
+-in this case hello(name) - is an argument  
+
+To FIX:
+-need to add Positional argument 
+
+def hello(to="World")			
+	print("Hello ", to)
+-------------------------------
+Correct WAY:
+
+def main():
+	name = input("Your name please: ")
+	hello(name)								>is an argument from hello function 
+	
+def hello(to):								>defining argument 
+	print("Hello", to)						>argument part of print statement
+
+
+if __name__ == "__main__":
+	main()
+==========================================================
+IF ELSE statements
+
+-different ways to write If statements:
+------------------------------------------
+grade = int(input("What is your grade? "))
+
+if grade >= 90 and grade <= 100:
+	print("Grade: A")
+if 90 <= grade >= 100: 
+if grade >= 90:
+---------------
+if name != 'Vlad':
+if name == 'Vlad' and/or name == 'Tim':
+---------------
+def main():
+    age = int(input("What is age? "))
+
+    if is_even(age):
+        print("True")
+    else:
+        print("False")
+
+def is_even(n):
+    if n % 4 == 0:
+        return True
+    else:
+        return False
+-------------------OR
+def is_even(n):
+	*return True if n % 4 == 0 else False		>short version
+	*return n % 4 == 0							>since this statement returns True/False, this will automatically detect T/F, no need to mention of 'return'
+	*if n % 4 == 0:								>another short version 
+		False 
+
+main()
+
+* Use Match statement - also efficient. 
+=========================================================
+Loop
+
+mylist = ["Honda", "Toyota", "BMW", "Lexus"]
+
+for i in range(len(mylist):
+	print(i) 			- output numbers 0, 1, 2, 3
+	print(mylist[i]		- output actual names inside list 
+
+-range() only used for Integers/ it expects an Integer 
+-len() - tells the length of a list 
+*Len converts 'mylist' into Integer (4), and Range gives list of numbers
+
+While True:
+	try:
+		x = int(input("What is x"?)
+		or 
+		return int(input("What is x"?) - prints the output 
+	except NameValue:
+		print("It is an error")
+	else:
+		break
+		return - breaks and returns value 
+		pass   - catches but ignores the error print statement. 
+				output: does not print (It is an error), goes straight to "What is x"
+		
+		
+height = int(input("What is height? "))
+
+for i in range(height):
+	print('#' * i)			-prints amount of hashe entered but minus 1 (ex: input 5, prints 4 cuz starts from 0)
+	print('#' * (i + 1))	-prints exact amount entered (ex: input 5, print 5 cuz 0+1=1 then 1*#
+	
+======================================================
+Debugging
+
+one way - type: python
+second way: breakpoint - pauses in specific areas where breakpoint (red dot) is placed and go STEP BY STEP 
+	-hover over to the left of the code line, just before the numbers, red dot appears - indication of breakpoint 
+	-Click "Run and Debug" on the icon to the Left (on the panel- looks like 'play' button)
+	
+third way: Try, Except, Else, Finally block 
+=========================================================
+Library/Modules
+
+Import random
+From random import choice
+
+print(choice("heads"))
+print(choice(["heads", "tails"])   -coin flip, heads or tails 
+
+print(random.randint(1, 10))    -random number between 1 and 10
+
+x = [1, 4, 6, 8, 10]
+random.shuffle(x)    -shuffles the list 
+print(x)
+
+Import statistics
+Import sys    -sys.argv[1]
+
+if len(sys.argv) == 2   -argument 2, because, one is name of program, second is user input 
+	ex: name.py Vlad 
+		name.py is one 
+		Vlad is two
+		
+if len(sys.argv) != 2		-if user in terminal does not provide filename.py and prompt
+	sys.exit()				-will exit 
+
+print("My name is", sys.argv[1])  -allows user to type keyword at a prompt (at a terminal, next to filename)
+when running this, in terminal, <filename>.py <any keyword>
+	ex: name.py Vlad 
+	
+print("My name is", sys.argv[0])  -prints "My name is" and <filename>
+print("My name is", sys.argv[1])  -prints "My name is" and first argument |ex: name.py Vlad - Vlad is an argument 
+print("My name is", sys.argv[1])  -in terminal: name.py "Vlad Kalmykov" - will print whats in quotes
+
+sys.exit("Will exit the system")
+
+#Slice of list = meaning, take a subset. a portion of list [1:] - start from 1, not 0
+#Slice of list = meaning, take a subset. a portion of list [1:-1] - start from 1, not 0, slice from the END
+
+name.py Vlad, Roxane, Alen, Peter
+My name is name.py			-prints name of file as well
+My name is Vlad
+My name is Roxane
+My name is Alen
+My name is Peter
+-To print just the names and avoide printing name of a file
+for arg in sys.argv[1:]:
+	print("My name is", arg)
+My name is Vlad
+My name is Roxane
+My name is Alen
+My name is Peter
+------------------
+import request 
+import sys
+
+if len(sys.argv) != 2:
+	sys.exit()			-if user does not enter anything in terminal, then exit 
+
+response.get("https://itunes.apple.com/search?entity=song&limit1&term=" + sys.argv[1])  -allows user to add own input at "term="
+print(response.json())
+print(json.dumps(response.json(), indent=2))	-prints pretty
+
+terminal: itunes.py weezer		-musical band name
+
+========================================================
+Packages
+-Third party library user can install with way more libraries 
+
+pypi.org -location packages stored
+pypi.org/project/cowsay			-funny python 
+
+pip install <packageName> -install packages
+then user can import:
+import <packageName>
+====================================================
+PEP8
+Python Enhancement Proposal - dictates how Python code should look like (style of coding) - Standards/Requirements 
+Aka - Style Guide
+
+-Indentation
+-Tabs/spaces
+-Capitalized
+-Panctuation
+
+pip install <tool name>
+once installed, open file in VSCode, in terminal, <toolName> <fileName>.py
+	ex: black name.py
+	ex: pylint name.py
+	
+Tools:
+Pylint aka Linter - analyzes code to a PEP style guide standards
+
+pycodestyle - same- formats the code to standard 
+pycodestyle.pycqa.org
+
+black - very popular tool to format python code 
+black.readthedocs.io
+more opinionated based on other professional coders 
+======================================================
+Unit Test/Assertion/Assert 
+
+-way to test your own code and provide report
+
+pytest - program that runs report 
+assert - asserts/validates statement 
+
+FILE_1
+def main():
+	name - int(input("What is name? ")
+	main_2(name)
+	
+def main_2(n):
+	return n * n 
+	
+if __name__ == "__main__":
+	main()
+
+FILE_2
+
+-creating second file to do assertions 
+from FILE_1 import main_2
+import pytest
+
+def main():
+    test_main_2()
+
+
+def test_main_2():
+    assert main_2(10)== 100
+    assert main_2(5) == 35  #if fails, will stop
+    assert main_2(0) == 0
+    assert main_2(-3)== 9
+       
+main()
+
+# break into few sections within reports 
+def test_positive():
+    assert main_2(10)== 100
+    assert main_2(5) == 25
+   
+def test_negative():
+    assert main_2(-3) == 9
+    assert main_2(-2) == 4
+
+def test_zero():
+    assert main_2(0) == 0
+
+def test_string():
+    assert main_2("cat") == 101
+
+# raising specific error for specific input
+import pytest 
+
+def test_string():
+    with pytest.raises(TypeError):
+        main_2("cat")
+---------------------
+def main():
+    name = input("What is name? ")
+    print(myName(name))
+
+
+def myName(to="Vlad"):
+    return f"hello, {to}"
+
+main()
+
+*Def function - the intent is to return a value (using 'print' is more of side effect)
+*print - is a more of side effect of any function (def, if else, for loop, etc)
+	'print' prints what you want
+	'return' returns a value of function (return 4 + 2)
+	try to avoid side effects= "print" if possible
+----------------
+def main():
+	name = ["harry", "larry", "lucky"]
+	for i in name:
+		assert f"hello {i}" == f"hello {i}"
+		print(i)
+		
+main()
+OR
+
+def main():
+	for name in ["harry", "larry", "lucky"]:
+		assert f"{name}" == f"{name}"
+		print(name)
+--------------------
+# Assert entire Folder
+
+-Create folder with file.py in it
+-Create __init__.py in the same folder
+	-    ^this is same as Package, even if its empty
+	__init__.py tells python to treat folder (where its located) as Package (package is model)
+	- then in Terminal, run "pytest <folderName>" - will provide report for each file 
+	
+	
+def main():
+	main_2()
+	
+def main_2(n):
+	assert f"Vlad" == "Vlad"
+	
+===================================================
+File I/O - Input/Output
+
+names = input("What is your name?")
+
+w - write names to file, overwrites the file with new content (loses old content)
+a - append content to file
+
+file = open("names.txt", "a")	-ex: VladKalmykov - appends next to previous content 
+file.write(names)				
+file.write(f"{names}\n")		ex: appends new content on new line 				
+file.close()
+
+with open("names.txt") as file:		>'with open' no need to specify 'r' or 'w' or 'a' ===== 'r' is default
+	file.write(f"hello {names}/n")
+----------------
+with open("names.txt") as file:
+		lines = file.readlines()
+		for i in lines:
+			print(f"hello," i)				>this prints lines and space between lines 
+			
+			print(f"hello," i.rstrip())		>strips space to right
+		
+------------------
+names = []
+
+with open("mynames.txt") as file:
+	for line in sorted(names):						>sort names in alfabetical order 
+	for line in sorted(names, reverse=True):		>sort in reverse 
+		print(f"hello ", {names})
+		
+with open("myname.txt", mode='r') as file:
+	print(file.read())
+--------------------------
+Write/append content to file
+Read file = print file to terminal.
+
+myfile = open("myfile.txt", 'a')
+myfile.write("Hello World"+'\n')
+myfile = open("myfile.txt", 'r')
+file_content = myfile.read()
+print(file_content)
+myfile.close()
+
+---------------------------
+csv - comma separate value file (used to store multiple information)
+
+-read specific values from file (not to read entire file)
+
+with open("students.csv") as file:
+	for line in file:
+		row = line.rstrip().split(",")			>splits character, here, indicating to split where comma is
+		print(row[0] is in row[1])
+		print(f"{row[0]} is in {row[1]}")		>prints first word (indexed by 0), and prints second word(indexed by 1)
+
+		row, line = line.rstrip().split(",")
+		print(f"{row}, {line}")
+
+-------------------
+import csv 
+
+students = {}
+
+with open("names.csv") as file:
+	reader = csv.reader(file)
+	for row in reader:
+		students.append({"name": name, "home": home})
+		
+with open("names.csv") as file:
+	reader = csv.DictReader(file)			>dictionary reader 
+	for row in reader:
+		students.append({"name": row["name"], "home": row["home"]})
+		students.append(row)					>same as above
+	
+for student in sorted(students, key=lambda student:student["name"]):
+	print(f"{student['name']} is from {student['home']})
+
+----------------------------------------------------------------------------
+file = open("projectFolder/python/todos.txt", 'w')
+file = open("..python/todos.txt", 'w')
+
+For Windows:
+file = open("projectFolder\\python\\todos.txt", 'w')
+file = open(r"projectFolder\python\todos.txt", 'w')			>r ignores '\n' or other notation
+
+=============================================================
+Regular Expressions
+
+import re 
+
+-Library called "re"
+-Regex is a Pattern that allows to validate against user input 
+-Validation user input, ex: validate user's email address
+-docs.python.org/3/library/re.html
+
+. represents any character except new blank line (one or more characters)
+* represents 0 or more repetitions/characters
++ represents 1 or more repetitions/characters
+? represents 0 or 1 repetition/character
+{m} represents number of repetitions/character
+{m, n} represents range or repetitions/character  
+^ Start of String
+$ End of String 
+[] set of characters
+[^abc] comlementing the set (do not match any of the characters/exclude characters)
+
+amail = input("What is your email?").strip()			>remove any spaces user might accidentally enter 
+
+if "@" in email and "." in email:
+	print("valid")
+else:
+	print("not valid")
+-----------
+email = input("your email? ").strip()
+
+username, domain = email.split("@")
+if username and "." in domain:
+if username and domain.endswith(".com"):
+	print("valid")
+else:
+	print("Invalid")
+	
+if re.search(".*@.*", email):		>find characters to the left and to the right(vova@yahoo.com)
+if re.search(".+@.+", email):
+if re.search("..*@..*", email):
+if re.search(r".+@.+\.edu", email):		>r-treat as raw. Treat \ as special character 
+if re.search(r"^[^@]+@[^@]+\.edu$", email):		>does not allow multiple of @@@ (invalid = vova@@@yahoo.edu)
+	print("valid")
+else:
+	print("Invalid")
+
+=====================================================================
+=====================================================================
+Binary - xlsx, mp4, docx, and other files which cannot be handle thru Text Editor. Such files need specific program to open/read/edit.
+Non-binary - txt, csv, py, html, json, and any other file content that can be viewed on any text editor (notepad, etc)(Read and Write to it)
+===================================================================== 
+
+dir(list)
+help(list.remove)
+
+file = open(r"C:\Users\Downloads\todos.txt", 'r')		>read file from absolute path (if file located outside of Project folder)
+print(file.read())
+print(file.readlines())
+content = file.read()
+print(content.title())
+file.close()											>always close file 
+print(file.read())									>if nothing prints, it means, its the end of file.
+
+-Close string(65)
+list = ["if list is too long"
+		"close it by ending with double quotes"
+		"but do not include comma",]
+var = "if list is too long "\
+		"close it by ending with double quotes and backlash"
+=========================================================================
+# OOP
+
+-Use as Dictionary
+def main():
+    student = get_student()
+    print(f"{'name'} is from {'origin'}")
+
+
+def get_student():
+    student = {}
+    student["name"] = input("Name: ")
+    student["origin"] = input("Origin: ")
+
+
+if __name__ == "__main__":
+    main()
+-------------------------
+-Use as Tuple (13:00)
+def main():
+    student = get_student()
+    print(f"{student[0]} is from {student[1]}")
+
+
+def get_student():
+    name = input("Name: ")
+    origin = input("Origin: ")
+    return name, origin
+
+
+if __name__ == "__main__":
+    main()
+-------------------------
+-Use of Functions  (12:00)
+def main():
+    name = get_name()
+    origin = get_origin()
+    print(f"{name} is from {origin}")
+
+
+def get_name():
+    return input("Name: ")
+
+def get_origin():
+    return input("Origin: ")
+
+
+if __name__ == "__main__":
+    main()
+----------------------------
+-Class (30:00)
+
+=====================================================================
+======================================================================
+PYTHON 
+
+# Youtube = python 101: Learn 5 must-know concepts:
+*Function example (with arguments)
+
+def large_number(numbers, n):
+	-when parameters are given, now add code what to do with those numbers. Assign them to Variable if needed.
+	-then actual values for Parameters are given in a Call (called: argument)
+	numbers.sort()
+	return numbers[-n:]					>starting with lowest number 
+	
+num = [2, 3, 4, 344, 32, 909, 877]		>passing into parameter(numbers)
+print(num)
+
+largest = large_number(num, 2)
+print(num)
+-------------------------------------------
+# Python names:
+
+*Multiple assignment:
+apple, orange, banana = 'sweet', 'sour', 'tasty'
+toyota = BMW = Lexus = 2018
+print(toyota, BMW, Lexus)			>2018
+
+*String Methods:
+name = "Bro Code"
+
+print(name.capitalize())
+print(name.lower())
+print(name.isdigit())
+print(name.isalpha())
+print(name.find("o"))
+-------------------------------------------
+* List Comprehensions:
+
+x = [x for i in range(10)]		>x is value (range(10))
+print(x)		
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+_Sample_
+x = [[j for j in range(5)] for i in range(7)]
+print(x)
+
+x = [i for i in range(5) if i % 2 == 0]		>list will execute if i%2 statement is True 
+----------------------------------------------
+positional arguments (x, y) are NOT allowed to follow Keyword argument (x = 23, y = 12) in Function
+fix: positional arguments: (x, y) must be FIRST then Keyword argument: (x=12, y=11)
+
+optional parameter:
+def large_number(x, y, z = None)		>z is optinal
+
+calling function 'large_number(2, 5)'		>z argument not required
+---------------------------------------------------
+*args
+-prints as tuple 
+-unlimited number of arguments
+-'args' can be replaced with whatever, as long as * is present. BUT by convention, 'args' is used. 
+
+def number(x, y, *args):		>allows unlimited number of arguments 
+	print(x, y, args)
+	pass						>passes function without code 
+	
+number(1, 2, 3, 4, 5)			>*args stores as tuples 
+---------------------
+def sum_of(*args):
+    return sum(args)
+
+
+add = sum_of(1, 2, 3)
+print(add)
+-------------------------
+# prints a list of even numbers
+def func(*args):				
+    return [i for i in args if i % 2 == 0]
+
+func1 = func(4, 5, 6, 7, 8)
+print(func1)
+---------------------
+**kwargs
+-returns as Dictionary 
+-allows unlimited Keyword arguments(a = 32, b = 'mold')
+
+
+def myfunc(**kwargs):
+    print("I would like {} and {} and {}".format(kwargs["fruit"], kwargs["vegies"], kwargs["condements"]))
+
+myfunc(fruit='banana', vegies='tomatoes', condements='ketchup')
+prints "I would like banana and tomatoes, and ketchup"
+---------------------------------------------
+def number(*args, **kwargs):		>allows unlimited number of arguments 
+	print(kwargs)
+	print(kwargs["c"])				>to access keys in dictionary 
+	print(*args, kwargs)
+	pass
+	
+number(a=2, b=10, c="string", etc..)	>stores as Dictionary 
+number(2, 3, 4, 5, a=2, b=10, c="string", etc..)		>allows both *args and kwargs 
+-----------------------------------------
+def func(*args, **kwargs):
+	print(args)								>prints as tuple 
+	print(kwargs)							>prints as definition 
+	
+    print('I like variety of food such {}, {}'.format(args[2], kwargs['drink']))	
+													tuple			definition
+
+func(2, 4, 6, sause='soy sause', food='pizza', drink='colas')
+prints "I like variety of food such 6 colas
+------------------------------------------
+def food(**kwargs):
+	print(kwargs)
+	if 'fruit' in kwargs:
+		print('{} is a fruit'.format(kwargs['fruit']))
+		
+food(fruit='apple', vegies='letture', model='car')
+------------------------------------------
+def number(a, b, c=True, d=False):		
+	print(a, b)
+	print(a, b, c, d)
+	pass
+	
+number(*[1, 2])			>that * decomposes the list(breaks it apart)
+o: 1, 2
+
+number(*[1, 2], **{"c": "hello", "d": "world"})			>that ** decomposes dictionary(breaks into keys)
+o: 1, 2, hello world 
+------------------------------------------
+if __name__ == "__main__":
+	print("run")
+https://www.youtube.com/watch?v=mMv6OSuitWw - youtube- well explains (14 min)
+
+													
+------------------------------------------
+
+# Mod operator = returns the remainder after division
+	ex: 2 % 2 = 0
+		3 % 2 = 1	2 goes into 3, once, remain 1
+		find 'even' numbers, they = 0
+		find 'odd' numbers, they = 1
+			ex: result = number % 2 == 0
+				return result 
+def is_even(a):
+    if a % 2 == 0:
+        return True
+    else:
+        return False
+
+# Tuple Unpacking:
+
+price_stock = [('GOOGLE', 34.00), ('APPLE', 55.99), ('TESLA', 112.00)]
+for stock, pricing in price_stock:
+    print(stock)							>prints only stock names 
+	print(pricing + (0.1 * pricing))		>adds 1% to pricing and prints it
+	
+*from random import shuffle
+myList = [1, 2, 3, 4]
+shuffle(myList)
+print(myList)
+-------------
+Tuple x = ()
+
+x = (1, 2)
+y = x 			>(1,2) is copies to y 
+x = (1, 2, 3)	>x is being re-assigned. This is because Tuples are Immutable.
+print(x, y)
+
+-If tuple value is re-assigned, its copies values (cuz tuples cannot change)
+-If List values are re-assigned, it re-assigns (cuz it can change)
+
+========================================================
+========================================================
+====================================================
+Python Mega Course - Udemy 
+
+
+TIP:
+-google: Methods
+ex: 'digit'.isdigit()
+ex: 123.isString()
+
+*all - function that returns boolean based on majority ruling (T, T, T = T/F, F, T = F)
+# If Else statement
+-alternative to that is Match case statement (python4)
+
+user_action = input("What is your name? ").strip()
+match user_action:
+	case 'Tim':
+		print("my name is " + user_action)
+	case 'Bob':
+		<code here>
+====================================================
+# Section 7 (read/write text files)
+
+file = open(r"text.txt", 'w')		>r-ignores '\user\text.txt' -\characters
+file = open("text.txt", 'w')
+file.writelines(['Alice', 'Charlie', 'Bob'])
+file.writelines(['Alice \n', 'Charlie \n'])
+file.write("This is just a text \n and this is next line")
+file.read()									>get all text as one single string 
+file.readlines()							>get separate strings for each line 
+file.close()
+
+-If you get no reading(no lines display) when executing file.readlines() or file.read() - because the cursor is at end of line, nothing to read there. 
+Need to start over or file.close() and Reopen file. 
+									file = open('text.txt', 'r')
+									file.read()
+-If text shows double space, then there is \n and for looop does its own break line (automatically)
+-item = item.strip('\n')			>add this to for loop, that strips extra '\n' if you need to.
+-----------------------------------
+todo = input('Enter todo: ')
+with open('todos.txt', 'r') as file:
+	todos = file.readlines()
+	
+todos.append(todo)
+
+with open('todos.txt', 'w') as file:
+	file.writelines(todos)
+
+-----------------------------------
+file = open('home/todo.txt', 'w')
+file = open(r"C:\users\home\todo.txt", 'w')
+---------------
+# Each content will write to each filepath:
+
+contents = ['Alice', 'Charlie', 'Bob']
+filepath = ['doc.txt', 'output.txt', 'text.txt']
+
+for content, location in zip(contents, filepath):
+    file = open(f"../files/{location}", 'w')		>.. means go up one directory/f means file 
+    file.write(content)
+    file.close()
+----------------
+# with-context manager
+
+with open('todos.txt', 'r') as file:
+	todo = file.readlines()
+	or
+	file.readlines()
+-this method automatically closes the file 
+===============================================================
+Sectin 10
+
+user_action = input("What is on your Agenda? ")
+todos = []
+
+if 'string' in user_action OR 'string2' in user_action:
+if 'string' in user_action AND 'string2' in user_action:
+if 'string' NOT IN user_action AND 'string2' NOT IN user_action:	
+
+new_todo = user_action[4:]		>slicing
+todos.append(new_todo)			>what ever is sliced, add remaining to 'todos' list 
+-----------------------
+sample
+
+password = input("enter password: ")
+result = []
+
+-want: add digits to result list 
+digit = True
+for i in password:
+	if i.isdigit():
+		digit = True 	>if character in password entered is a digit, then it becomes True, if not, its False 
+		result.append(i)
+print(result)
+==========================================================================
+Section 11
+
+*user_action.startswith('add')
+
+try:
+except ErrorException, ErrorException2:
+	print
+except ErrorException3:
+	print
+	
+-code inside try/except: will not stop the execution if exception occurs
+-try/except: only catches exceptions, does not catch syntax/value type errors
+
+*Continue;
+*Break;
+
+===================================================================
+section 12
+
+functions 
+print vs return
+==================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
